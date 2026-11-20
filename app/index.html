@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Field Guide — GTA VI Trophy Guide &amp; Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <h1><span class="neon">Leonida</span> <span class="cyan">Field Guide</span></h1>
+  <p class="sub">The offline trophy guide and tracker for Grand Theft Auto VI on PlayStation 5 — all 55 official trophies, a roadmap to the platinum, and a cited guide for every one. Works with the network off.</p>
+  <p class="meta">55 trophies · 1 platinum · 2 gold · 6 silver · 46 bronze · 0 online · about 200 hours to platinum (PowerPyx: 4/10)</p>
+  <div class="progress-wrap">
+    <div class="progress-big" id="progressBig">0 / 55 earned</div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="grade-counts" id="gradeCounts"></div>
+  </div>
+  <div class="nextup" id="nextUp">
+    <h2>Next up</h2>
+    <p id="nextUpText">Finish setup, then start the story.</p>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs">
+  <button data-view="checklist" class="active">Checklist</button>
+  <button data-view="roadmap">Roadmap to Platinum</button>
+  <button data-view="missables">Missables</button>
+</nav>
+
+<div class="toolbar" id="toolbar">
+  <input type="search" id="searchBox" placeholder="Search trophy name or description…" aria-label="Search trophies">
+  <select id="gradeFilter" aria-label="Filter by grade">
+    <option value="">All grades</option>
+    <option value="platinum">Platinum</option>
+    <option value="gold">Gold</option>
+    <option value="silver">Silver</option>
+    <option value="bronze">Bronze</option>
+  </select>
+  <select id="kindFilter" aria-label="Filter by kind">
+    <option value="">All kinds</option>
+    <option value="story">Story</option>
+    <option value="misc">Misc</option>
+    <option value="activity">Activity</option>
+    <option value="combat">Combat</option>
+    <option value="collectible">Collectible</option>
+  </select>
+  <select id="earnedFilter" aria-label="Filter by earned status">
+    <option value="">Earned + unearned</option>
+    <option value="unearned">Unearned only</option>
+    <option value="earned">Earned only</option>
+  </select>
+  <label class="switch"><input type="checkbox" id="spoilerToggle" checked> Spoilers off (hide story trophies until earned)</label>
+  <button id="exportBtn">Export progress</button>
+  <button id="importBtn">Import progress</button>
+  <input type="file" id="importFile" accept="application/json,.json" hidden>
+</div>
+
+<main>
+  <section class="view" id="view-checklist">
+    <h2>Trophy checklist</h2>
+    <p class="lede">Tick a trophy when it pops. Progress is saved in this browser. Open a guide for the how-to and its sources.</p>
+    <div id="trophyList"></div>
+  </section>
+
+  <section class="view" id="view-roadmap" hidden>
+    <h2>Roadmap to the platinum</h2>
+    <p class="lede">Four phases, one playthrough, about 200 hours. Built from the official descriptions and the PowerPyx roadmap. There is no mission replay and no New Game+, so the callout below comes first.</p>
+    <div class="callout" id="doBefore">
+      <h3>Do before advancing</h3>
+      <ul>
+        <li><b>Chapter 1, before it ends:</b> meditate at Jason's house with Lucia (after the mission Down to Earth) — the first meditation spot for <b>Positive Mental Attitude</b> is the only missable step in the game.</li>
+        <li><b>Save manually</b> at the start of every chapter. Missions cannot be replayed, and cheats disable trophies.</li>
+        <li><b>Scan vehicles and study animals</b> as you play — the 100% checklist counts progress made during the story.</li>
+        <li><b>Before the final mission:</b> finish optional missions and open stranger strands. After the credits you keep free-roam, but unplayed missions do not come back.</li>
+        <li><b>Story choices:</b> trophies named Personal Best, Actions Speak Louder, Bad Luck I Guess and The Truth Is Out There hint at choices and surprises. Their exact steps are not confirmed yet — keep a chapter-start save before big decisions.</li>
+      </ul>
+    </div>
+    <div id="phaseList"></div>
+  </section>
+
+  <section class="view" id="view-missables" hidden>
+    <h2>Missable trophies</h2>
+    <p class="lede">Only one trophy can truly be missed. The rest of this page lists the trophies to check before advancing, with the reason — not a missable flag.</p>
+    <ul class="miss-list" id="missList"></ul>
+    <h2>Check before advancing</h2>
+    <ul class="miss-list" id="checkList"></ul>
+  </section>
+</main>
+
+<footer>
+  <p>Leonida Field Guide — an unofficial fan guide. Not affiliated with Rockstar Games. No official artwork, logos or game screenshots are used.</p>
+  <p>Official trophy names, descriptions and grades: PlayStation, as listed by Exophase and PSNProfiles. Guides are written in our own words and cite their sources beside each trophy.</p>
+  <p>All data lives in <code>data/trophies.json</code>. Progress is stored only in this browser (localStorage) and can be exported or imported as a JSON file.</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
